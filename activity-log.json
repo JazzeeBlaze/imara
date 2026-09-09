@@ -1,3 +1,10 @@
 {
-  "logs": []
+  "logs": [
+    {
+      "username": "demo",
+      "displayName": "Demo User",
+      "action": "login",
+      "timestamp": "2026-09-09T10:18:00.839Z"
+    }
+  ]
 }
