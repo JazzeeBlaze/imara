@@ -316,12 +316,34 @@ export default function LoginPortal(props: any) {
     useEffect(() => {
         if (view !== "files" || tree) return
         setLoadingFiles(true)
-        fetch(`${RAW}/files.json`)
+
+        // Use GitHub API (always fresh) instead of raw.githubusercontent.com (cached up to 5 min)
+        const apiHeaders: Record<string, string> = {
+            Accept: "application/vnd.github.v3+json",
+        }
+        if (GITHUB_PAT) apiHeaders.Authorization = `Bearer ${GITHUB_PAT}`
+
+        fetch(`${API}/contents/files.json?ref=${GITHUB_BRANCH}`, { headers: apiHeaders })
             .then((r) => {
-                if (!r.ok) throw new Error(`HTTP ${r.status}`)
+                if (!r.ok) throw new Error(`API ${r.status}`)
                 return r.json()
             })
+            .then((data) => {
+                // GitHub API returns base64-encoded content
+                const decoded = atob(data.content.replace(/\n/g, ""))
+                return JSON.parse(decoded)
+            })
             .then(setTree)
+            .catch((apiErr) => {
+                // Fallback: try raw URL with cache-busting param
+                console.warn("[Imara] API fetch failed, trying raw:", apiErr)
+                return fetch(`${RAW}/files.json?t=${Date.now()}`)
+                    .then((r) => {
+                        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+                        return r.json()
+                    })
+                    .then(setTree)
+            })
             .catch((e) => console.error("[Imara] files.json error:", e))
             .finally(() => setLoadingFiles(false))
     }, [view, tree])
@@ -337,9 +359,23 @@ export default function LoginPortal(props: any) {
         setError("")
         setBusy(true)
         try {
-            const res = await fetch(`${RAW}/users.json`)
-            if (!res.ok) throw new Error(`HTTP ${res.status}`)
-            const data: { users: IUser[] } = await res.json()
+            // Use GitHub API for fresh data (raw.githubusercontent.com has CDN cache)
+            let data: { users: IUser[] }
+            try {
+                const apiHeaders: Record<string, string> = {
+                    Accept: "application/vnd.github.v3+json",
+                }
+                if (GITHUB_PAT) apiHeaders.Authorization = `Bearer ${GITHUB_PAT}`
+                const apiRes = await fetch(`${API}/contents/users.json?ref=${GITHUB_BRANCH}`, { headers: apiHeaders })
+                if (!apiRes.ok) throw new Error(`API ${apiRes.status}`)
+                const apiData = await apiRes.json()
+                data = JSON.parse(atob(apiData.content.replace(/\n/g, "")))
+            } catch {
+                // Fallback to raw URL
+                const rawRes = await fetch(`${RAW}/users.json?t=${Date.now()}`)
+                if (!rawRes.ok) throw new Error(`HTTP ${rawRes.status}`)
+                data = await rawRes.json()
+            }
             const hash = await sha256(p)
             const match = data.users.find(
                 (usr) =>
