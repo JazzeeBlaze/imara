@@ -1,0 +1,345 @@
+{
+  "start": "welcome",
+  "nodes": {
+    "welcome": {
+      "message": "Hi, I’m Auri 👋 How can I help you explore Imara?",
+      "options": [
+        {
+          "label": "Explore Velora",
+          "next": "velora"
+        },
+        {
+          "label": "Learn about Imara",
+          "next": "imara"
+        },
+        {
+          "label": "Explore the neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ]
+    },
+    "velora": {
+      "message": "What would you like to know about Velora by the Falls?",
+      "options": [
+        {
+          "label": "Location & connectivity",
+          "next": "velora_location"
+        },
+        {
+          "label": "Home types",
+          "next": "home_types"
+        },
+        {
+          "label": "Community & lifestyle",
+          "next": "velora_lifestyle"
+        },
+        {
+          "label": "Current opportunity",
+          "next": "hst"
+        }
+      ],
+      "back": "welcome"
+    },
+    "imara": {
+      "message": "What would you like to know about Imara?",
+      "options": [
+        {
+          "label": "Our story",
+          "next": "story"
+        },
+        {
+          "label": "Our values",
+          "next": "values"
+        },
+        {
+          "label": "Who is Auri?",
+          "next": "auri"
+        }
+      ],
+      "back": "welcome"
+    },
+    "neighbourhood": {
+      "message": "What part of the neighbourhood would you like to explore?",
+      "options": [
+        {
+          "label": "Parks & nature",
+          "next": "parks"
+        },
+        {
+          "label": "Shopping & essentials",
+          "next": "shopping"
+        },
+        {
+          "label": "Healthcare",
+          "next": "healthcare"
+        },
+        {
+          "label": "Schools",
+          "next": "schools"
+        },
+        {
+          "label": "Entertainment",
+          "next": "entertainment"
+        },
+        {
+          "label": "Transportation",
+          "next": "connectivity"
+        }
+      ],
+      "back": "welcome"
+    },
+    "velora_location": {
+      "message": "Velora is at 5850 McLeod Road in Niagara Falls. It is within walking distance of Niagara Falls and close to golf, parks, shopping, dining and everyday essentials.",
+      "options": [
+        {
+          "label": "See the neighbourhood",
+          "url": "/neighbourhood"
+        },
+        {
+          "label": "More about Velora",
+          "next": "velora"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "velora"
+    },
+    "home_types": {
+      "message": "Velora currently presents three home types.",
+      "options": [
+        {
+          "label": "Type 1 — Traditional townhome",
+          "next": "type1"
+        },
+        {
+          "label": "Type 2 — Back-to-back townhome",
+          "next": "type2"
+        },
+        {
+          "label": "Type 3 — Stacked townhome",
+          "next": "type3"
+        }
+      ],
+      "back": "velora"
+    },
+    "type1": {
+      "message": "Type 1 is a traditional townhome designed for growing families seeking comfort and connected living.",
+      "options": [
+        {
+          "label": "Back to home types",
+          "next": "home_types"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "home_types"
+    },
+    "type2": {
+      "message": "Type 2 is a back-to-back townhome designed for efficient, contemporary living.",
+      "options": [
+        {
+          "label": "Back to home types",
+          "next": "home_types"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "home_types"
+    },
+    "type3": {
+      "message": "Type 3 is a stacked townhome offering smartly designed urban living with elegant functionality.",
+      "options": [
+        {
+          "label": "Back to home types",
+          "next": "home_types"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "home_types"
+    },
+    "velora_lifestyle": {
+      "message": "Velora is planned around greenery, walkability and modern living, balancing nature, convenience and a strong sense of community.",
+      "options": [
+        {
+          "label": "Explore amenities",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "See Velora",
+          "url": "/velora"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "velora"
+    },
+    "hst": {
+      "message": "The Velora website currently highlights Ontario’s temporary HST relief for eligible new homes, with the current program scheduled to remain available until March 2027. Imara’s sales team can explain eligibility and how it may apply.",
+      "options": [
+        {
+          "label": "Talk to the sales team",
+          "next": "message"
+        },
+        {
+          "label": "Learn more about Velora",
+          "next": "velora"
+        }
+      ],
+      "back": "velora"
+    },
+    "story": {
+      "message": "Imara Homes is a residential brand focused on thoughtfully planned communities, quality, care and long-term value. Its team brings more than a decade of construction-industry experience.",
+      "options": [
+        {
+          "label": "What makes Imara different?",
+          "next": "values"
+        },
+        {
+          "label": "Who is Auri?",
+          "next": "auri"
+        },
+        {
+          "label": "Back to Imara",
+          "next": "imara"
+        }
+      ],
+      "back": "imara"
+    },
+    "values": {
+      "message": "Imara brings development and construction expertise together, with a focus on exceptional locations, timeless design, meaningful amenities, quality craftsmanship and communities people are proud to call home.",
+      "options": [
+        {
+          "label": "Our story",
+          "next": "story"
+        },
+        {
+          "label": "Back to Imara",
+          "next": "imara"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "imara"
+    },
+    "auri": {
+      "message": "Auri is the spirit behind every Imara community — a mascot and guide representing thoughtful planning, discovery and connection.",
+      "options": [
+        {
+          "label": "Back to Imara",
+          "next": "imara"
+        },
+        {
+          "label": "Explore Velora",
+          "next": "velora"
+        }
+      ],
+      "back": "imara"
+    },
+    "parks": {
+      "message": "Nearby nature includes Heartland Forest Nature Experience, John N. Allan Park, Garner Neighbourhood Park, Kingsbridge Park, Dufferin Islands Nature Area, Fallsview Trail and Niagara River Recreation Trail.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "shopping": {
+      "message": "Nearby shopping and essentials include SmartCentres Niagara Falls, Walmart Supercentre, Costco, RONA, Niagara Square Shopping Centre, FreshCo, Food Basics and Outlet Collection at Niagara.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "healthcare": {
+      "message": "Nearby healthcare includes Niagara Falls Urgent Care Centre, Greater Niagara General Hospital and the upcoming South Niagara Hospital.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "schools": {
+      "message": "Nearby schools listed by Imara include Lundy’s Lane Public School, St. Michael Catholic High School, Forestview Public School and A.N. Myer Secondary School.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "entertainment": {
+      "message": "Nearby entertainment includes Fallsview Casino Resort, Clifton Hill, Casino Niagara, Niagara SkyWheel, Great Canadian Midway, Niagara Speedway, Niagara Helicopter Tours, Niagara Parks Floral Clock and Niagara Wine Country.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "connectivity": {
+      "message": "Nearby connectivity includes the QEW McLeod Interchange, Niagara Falls GO Terminal, VIA Rail Station and Niagara District Airport.",
+      "options": [
+        {
+          "label": "More neighbourhood",
+          "next": "neighbourhood"
+        },
+        {
+          "label": "Leave a message",
+          "next": "message"
+        }
+      ],
+      "back": "neighbourhood"
+    },
+    "message": {
+      "message": "Tell us what you’d like the Imara team to know. Your message will be sent to the Imara team.",
+      "options": [],
+      "back": "welcome"
+    }
+  }
+}
